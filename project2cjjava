@@ -1,0 +1,25 @@
+let popup = document.getElementById('popup');
+
+function showRandomMessage() {
+    const messages = ["Welcome to Windows 97", "Error: 404 - Screensaver not found", "Click OK to continue..."];
+    let message = document.getElementById('message');
+    message.innerText = messages[Math.floor(Math.random() * messages.length)];
+    setTimeout(showRandomMessage, 3000);
+}
+
+function showEditablePopup() {
+    popup.classList.remove('hidden');
+}
+
+function getUserInput() {
+    let userInput = document.getElementById('userInput').value;
+    console.log("User input:", userInput);
+    popup.classList.add('hidden');
+    document.getElementById('userInput').value = '';
+}
+
+document.addEventListener('keypress', function() {
+    showEditablePopup();
+});
+
+showRandomMessage();
